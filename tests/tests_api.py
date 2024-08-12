@@ -36,8 +36,9 @@ def test_delete_user_with_status_code_204(url):
 
 
 def test_get_not_found_singer_user_with_status_code_404(url):
-    response = requests.get(url + 'users/23')
+    response = requests.get(url + '/users/23')
     assert response.status_code == 404
+    assert response.json() == {}
 
 
 def test_post_bad_request_with_status_code_400(url):
